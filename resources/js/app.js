@@ -5,8 +5,6 @@
  */
 
 require('./bootstrap');
-import DataIndexComponent from './components/usuario/index.vue';
-
 window.Vue = require('vue').default;
 /**
  * The following block of code may be used to automatically register your
@@ -21,7 +19,7 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component('data-index', DataIndexComponent);
+Vue.component('data-index',require('./components/index.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

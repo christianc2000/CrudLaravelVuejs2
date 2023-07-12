@@ -19,10 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::controller(UserController::class)->group(function () {
-    Route::get('/users','index')->name('user.index');
-    Route::post('/users', 'store');
-    Route::put('/users/{id}','update');
-    Route::get('/users/{id}','show');
-    Route::delete('/users/{id}','destroy');
-});
+Route::get('users',[UserController::class,'index']);
+Route::post('users',[UserController::class,'store']);
+Route::put('users/{id}/update',[UserController::class,'update']);
+Route::get('users/{id}',[UserController::class,'show']);
+Route::delete('users/{id}',[UserController::class,'destroy']);

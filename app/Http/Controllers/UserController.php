@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::selectRaw("TO_CHAR(created_at AT TIME ZONE 'America/La_Paz' AT TIME ZONE 'America/La_Paz', 'YYYY-MM-DD HH24:MI') AS fecha_formateada,*")->get();
         return $this->sendResponse($users, "lista de usuarios.");
     }
 
@@ -69,7 +69,6 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -83,12 +82,18 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required'
+            'email' => 'required|email',
+            'password' => 'String'
         ]);
         try {
             $user = User::findOrFail($id);
-            $user->update($request->all());
+            if (isset($request->password)) {
+                $p = $request->password;
+                return "ingresano null";
+            } else {
+                $p = $user->password;
+            }
+            $user->update(['name' => $request->name, 'email' => $request->email, 'password' => $p]);
             return $this->sendResponse($user, "Usuario actualizado correctamente.");
         } catch (\Throwable $th) {
             return $this->sendError("Usuario no encontrado.", 404);

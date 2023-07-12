@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const path = require('path');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,4 +14,9 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass('resources/sass/app.scss', 'public/css').webpackConfig({
+        resolve: {
+            alias: {
+                'vuetify': path.resolve(__dirname, 'node_modules/vuetify'),
+            },
+        }});

@@ -23,5 +23,8 @@
         "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.6.12",
         "vuetable-2": "^1.7.5"
+    },
+    "dependencies": {
+        "vue-datatable": "^1.0.4"
     }
 }

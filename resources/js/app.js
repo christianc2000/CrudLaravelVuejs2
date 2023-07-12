@@ -5,6 +5,11 @@
  */
 
 require('./bootstrap');
+import DataIndexComponent from './components/usuario/index.vue';
+import Vuetify from 'vuetify';
+import 'vuetify/dist/vuetify.min.css';
+
+Vue.use(Vuetify);
 
 window.Vue = require('vue').default;
 
@@ -21,6 +26,7 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+Vue.component('data-index', DataIndexComponent);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -29,4 +35,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    vuetify,
 });

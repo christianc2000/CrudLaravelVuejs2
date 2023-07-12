@@ -15,6 +15,11 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+           
+                    <data-table>
+                        hola mundo
+                    </data-table>
                 </div>
             </div>
         </div>

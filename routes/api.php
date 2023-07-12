@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::controller(UserController::class)->group(function () {
-    Route::get('/users','index');
+    Route::get('/users','index')->name('user.index');
     Route::post('/users', 'store');
     Route::put('/users/{id}','update');
     Route::get('/users/{id}','show');

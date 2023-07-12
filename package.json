@@ -25,6 +25,8 @@
         "vuetable-2": "^1.7.5"
     },
     "dependencies": {
+        "datatables.net": "^1.13.5",
+        "datatables.net-bs4": "^1.13.5",
         "vue-datatable": "^1.0.4"
     }
 }

@@ -6,13 +6,8 @@
 
 require('./bootstrap');
 import DataIndexComponent from './components/usuario/index.vue';
-import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css';
-
-Vue.use(Vuetify);
 
 window.Vue = require('vue').default;
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -35,5 +30,4 @@ Vue.component('data-index', DataIndexComponent);
 
 const app = new Vue({
     el: '#app',
-    vuetify,
 });
